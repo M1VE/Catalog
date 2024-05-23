@@ -1,0 +1,55 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="{% static 'images/logo.png' %}" alt="Логотип">
+            <h1>Название сайта</h1>
+        </div>
+        <div class="nav-right">
+            <form id="search-form" action="/catalog/search/" method="GET">
+                <input type="text" id="search-input" name="query" placeholder="Поиск...">
+                <button type="submit">Найти</button>
+            </form>
+        </div>
+    </nav>
+
+    <header class="header">
+        <h1>Welcome to Our Store</h1>
+        <!-- Другие элементы вашего заголовка -->
+    </header>
+
+    <main id="product-container">
+        <h1>Product List</h1>
+        <div class="product-list">
+            {% for product in products %}
+                <div class="product-card" data-name="{{ product.name }}" data-category="{{ product.category }}">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <h2>{{ product.name }}</h2>
+                    <p>{{ product.price|floatformat:2 }} сом</p>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Связаться с нами:</p>
+            <ul>
+                <li>Email: example@example.com</li>
+                <li>Телефон: +1234567890</li>
+                <!-- Другие контактные данные -->
+            </ul>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/search.js' %}"></script>
+    <script src="{% static 'js/pagination.js' %}"></script>
+</body>
+</html>
