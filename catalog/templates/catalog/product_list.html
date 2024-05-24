@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .pagination-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pagination-buttons button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .pagination-buttons button.active {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -25,17 +42,26 @@
     </header>
 
     <main id="product-container">
-        <h1>Product List</h1>
         <div class="product-list">
             {% for product in products %}
-                <div class="product-card" data-name="{{ product.name }}" data-category="{{ product.category }}">
+                <div class="product-card" data-name="{{ product.name }}" data-category="{{ product.category.name }}" data-brand="{{ product.brand }}"> <!-- Добавлен атрибут data-brand -->
                     <img src="{{ product.image.url }}" alt="{{ product.name }}">
                     <h2>{{ product.name }}</h2>
                     <p>{{ product.price|floatformat:2 }} сом</p>
+                    <p>Категория: {{ product.category.name }}</p>
+                    <p>Бренд: {{ product.brand }}</p>
                 </div>
             {% endfor %}
         </div>
+        <div class="pagination-buttons">
+            <button id="prev-page-btn">&laquo;&laquo;</button>
+            <button id="prev-btn">&laquo;</button>
+            <span id="page-info"></span>
+            <button id="next-btn">&raquo;</button>
+            <button id="next-page-btn">&raquo;&raquo;</button>
+        </div>
     </main>
+
 
     <footer class="footer">
         <div class="footer-content">

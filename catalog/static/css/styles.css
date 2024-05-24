@@ -5,28 +5,28 @@ body {
 }
 
 .navbar {
-    background-color: #888; /* gray background for navbar */
-    color: #fff; /* text color for navbar */
-    padding: 10px 20px; /* adjust padding as needed */
+    background-color: #888;
+    color: #fff;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
 }
 
 .nav-left {
-    flex: 1; /* allows logo and site name to take up remaining space */
+    flex: 1;
     display: flex;
     align-items: center;
 }
 
 .nav-left img {
-    height: 60px; /* Set the height of the logo to its original size */
-    margin-right: 10px; /* Add margin as needed */
+    height: 60px;
+    margin-right: 10px;
 }
 
 .nav-left .site-name {
     font-size: 28px;
     font-family: 'Roboto', sans-serif;
-    margin: 0; /* remove default margin */
+    margin: 0;
 }
 
 .nav-right {
@@ -35,8 +35,8 @@ body {
 }
 
 .header {
-    background-color: #fff; /* white background for header */
-    color: #333; /* text color for header */
+    background-color: #fff;
+    color: #333;
     padding: 20px;
     text-align: center;
 }
@@ -51,10 +51,16 @@ body {
 
 .product-card {
     width: 100%;
-    padding: 15px;
-    border: 1px solid #ccc;
+    padding: 20px;
     border-radius: 5px;
     box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .product-card img {
@@ -92,3 +98,9 @@ body {
     margin-top: -2px;
     margin-right: 10px;
 }
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
