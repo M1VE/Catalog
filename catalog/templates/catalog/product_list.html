@@ -5,23 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <style>
-        .pagination-buttons {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .pagination-buttons button {
-            margin: 0 5px;
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            cursor: pointer;
-        }
-        .pagination-buttons button.active {
-            background-color: #ddd;
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -39,12 +22,28 @@
 
     <header class="header">
         <h1>Оптовая продажа одежды</h1>
+        <div class="filters">
+            <label for="min-price">Минимальная цена:</label>
+            <input type="number" id="min-price"  value="0">
+            <label for="max-price">Максимальная цена:</label>
+            <input type="number" id="max-price"  value="500">
+            <br>
+            <label for="price-range">Фильтр по цене:</label>
+            <input type="range" id="price-range"  value="0">
+            <input type="range" id="price-range-max"  value="500">
+            <span id="price-value">0 сом</span> - <span id="price-value-max">500 сом</span>
+            <br><br>
+            <label for="category-filter">Фильтр по категории:</label>
+            <select id="category-filter">
+                <option value="all">Все категории</option>
+            </select>
+        </div>
     </header>
 
     <main id="product-container">
         <div class="product-list">
             {% for product in products %}
-                <div class="product-card" data-name="{{ product.name }}" data-category="{{ product.category.name }}" data-brand="{{ product.brand }}"> <!-- Добавлен атрибут data-brand -->
+                <div class="product-card" data-name="{{ product.name }}" data-category="{{ product.category.name }}" data-brand="{{ product.brand }}" data-description="{{ product.description }}" data-price="{{ product.price }}" data-image="{{ product.image.url }}"> <!-- Добавлены атрибуты data-description и data-price -->
                     <img src="{{ product.image.url }}" alt="{{ product.name }}">
                     <h2>{{ product.name }}</h2>
                     <p>{{ product.price|floatformat:2 }} сом</p>
@@ -53,6 +52,17 @@
                 </div>
             {% endfor %}
         </div>
+    <div class="product-details" style="display: none;">
+        <button id="back-btn-top">Назад</button>
+        <h2 id="detail-name"></h2>
+        <img id="detail-image" src="" width="1000" height="1000" alt="" >
+        <p id="detail-price"></p>
+        <p id="detail-category"></p>
+        <p id="detail-brand"></p>
+        <p id="detail-description"></p>
+        <button id="back-btn-bottom">Назад</button>
+    </div>
+
         <div class="pagination-buttons">
             <button id="prev-page-btn">&laquo;&laquo;</button>
             <button id="prev-btn">&laquo;</button>
@@ -61,7 +71,6 @@
             <button id="next-page-btn">&raquo;&raquo;</button>
         </div>
     </main>
-
 
     <footer class="footer">
         <div class="footer-content">
@@ -76,5 +85,7 @@
 
     <script src="{% static 'js/search.js' %}"></script>
     <script src="{% static 'js/pagination.js' %}"></script>
+    <script src="{% static 'js/filter.js' %}"></script>
+    <script src="{% static 'js/return.js' %}"></script>
 </body>
 </html>

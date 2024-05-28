@@ -38,7 +38,10 @@ body {
     background-color: #fff;
     color: #333;
     padding: 20px;
-    text-align: center;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .product-list {
@@ -104,3 +107,46 @@ body {
     text-decoration: none;
 }
 
+.filters {
+    text-align: left;
+    margin-right: auto;
+}
+
+.filters label {
+    margin-right: 10px;
+}
+
+.filters input[type="number"],
+.filters input[type="range"],
+.filters select {
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+}
+
+.filters button {
+    padding: 5px 10px;
+    background-color: #888;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    background-color: #555;
+}
+.back-btn {
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.back-btn:hover {
+    background-color: #333;
+}
