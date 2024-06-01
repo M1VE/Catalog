@@ -20,30 +20,39 @@
         </div>
     </nav>
 
-    <header class="header">
-        <h1>Оптовая продажа одежды</h1>
-        <div class="filters">
+<header class="header">
+    <div class="wholesale-text">Оптовая продажа</div>
+    <div class="filters">
+        <div class="filter-group">
             <label for="min-price">Минимальная цена:</label>
-            <input type="number" id="min-price"  value="0">
+            <input type="number" id="min-price" class="filter-item" value="0">
+        </div>
+        <div class="filter-group">
             <label for="max-price">Максимальная цена:</label>
-            <input type="number" id="max-price"  value="500">
-            <br>
+            <input type="number" id="max-price" class="filter-item" value="50000">
+        </div>
+        <div class="filter-group">
             <label for="price-range">Фильтр по цене:</label>
-            <input type="range" id="price-range"  value="0">
-            <input type="range" id="price-range-max"  value="500">
-            <span id="price-value">0 сом</span> - <span id="price-value-max">500 сом</span>
-            <br><br>
+            <input type="range" id="price-range" class="filter-item" value="0">
+            <input type="range" id="price-range-max" class="filter-item" value="50000">
+            <span id="price-value" class="filter-item">0 сом</span> - <span id="price-value-max" class="filter-item">50 000 сом</span>
+        </div>
+        <div class="filter-group">
             <label for="category-filter">Фильтр по категории:</label>
-            <select id="category-filter">
+            <select id="category-filter" class="filter-item">
                 <option value="all">Все категории</option>
             </select>
         </div>
-    </header>
+    </div>
+</header>
+
+
+
 
     <main id="product-container">
         <div class="product-list">
             {% for product in products %}
-                <div class="product-card" data-name="{{ product.name }}" data-category="{{ product.category.name }}" data-brand="{{ product.brand }}" data-description="{{ product.description }}" data-price="{{ product.price }}" data-image="{{ product.image.url }}"> <!-- Добавлены атрибуты data-description и data-price -->
+                <div class="product-card" data-name="{{ product.name }}" data-category="{{ product.category.name }}" data-brand="{{ product.brand }}" data-description="{{ product.description }}" data-price="{{ product.price }}" data-image="{{ product.image.url }}">
                     <img src="{{ product.image.url }}" alt="{{ product.name }}">
                     <h2>{{ product.name }}</h2>
                     <p>{{ product.price|floatformat:2 }} сом</p>
@@ -52,24 +61,23 @@
                 </div>
             {% endfor %}
         </div>
-    <div class="product-details" style="display: none;">
-        <button id="back-btn-top">Назад</button>
-        <h2 id="detail-name"></h2>
-        <img id="detail-image" src="" width="1000" height="1000" alt="" >
-        <p id="detail-price"></p>
-        <p id="detail-category"></p>
-        <p id="detail-brand"></p>
-        <p id="detail-description"></p>
-        <button id="back-btn-bottom">Назад</button>
-    </div>
-
-        <div class="pagination-buttons">
-            <button id="prev-page-btn">&laquo;&laquo;</button>
-            <button id="prev-btn">&laquo;</button>
-            <span id="page-info"></span>
-            <button id="next-btn">&raquo;</button>
-            <button id="next-page-btn">&raquo;&raquo;</button>
+        <div class="product-details" style="display: none;">
+            <button id="back-btn-top">Назад</button>
+            <h2 id="detail-name"></h2>
+            <img id="detail-image" src="" alt="">
+            <p id="detail-price"></p>
+            <p id="detail-category"></p>
+            <p id="detail-brand"></p>
+            <p id="detail-description"></p>
+            <button id="back-btn-bottom">Назад</button>
         </div>
+    <div class="pagination-buttons">
+        <button id="prev-page-btn" disabled>&lt;&lt;</button>
+        <button id="prev-btn" disabled>&lt;</button>
+        <span id="page-info">Страница 1 из 10</span>
+        <button id="next-btn">&gt;</button>
+        <button id="next-page-btn">&gt;&gt;</button>
+    </div>
     </main>
 
     <footer class="footer">
