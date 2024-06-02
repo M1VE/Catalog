@@ -1,5 +1,5 @@
 const products = document.querySelectorAll('.product-card');
-const itemsPerPage = 15;
+const itemsPerPage = 10;
 let currentPage = 1;
 
 function displayItems(items, page) {
