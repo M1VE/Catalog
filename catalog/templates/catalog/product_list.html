@@ -32,12 +32,15 @@
             <label for="max-price">Максимальная цена:</label>
             <input type="number" id="max-price" class="filter-item" value="50000">
         </div>
-        <div class="filter-group">
-            <label for="price-range">Фильтр по цене:</label>
-            <input type="range" id="price-range" class="filter-item" value="0">
-            <input type="range" id="price-range-max" class="filter-item" value="50000">
-            <span id="price-value" class="filter-item">0 сом</span> - <span id="price-value-max" class="filter-item">50 000 сом</span>
-        </div>
+            <div class="filters">
+              <div class="filter-group" style="display: none;">
+                <label for="price-range">Фильтр по цене:</label>
+                <input type="range" id="price-range" class="filter-item" value="0">
+                <input type="range" id="price-range-max" class="filter-item" value="50000">
+                <span id="price-value" class="filter-item">0 сом</span> - <span id="price-value-max" class="filter-item">50 000 сом</span>
+              </div>
+            </div>
+
         <div class="filter-group">
             <label for="category-filter">Фильтр по категории:</label>
             <select id="category-filter" class="filter-item">
@@ -46,10 +49,6 @@
         </div>
     </div>
 </header>
-
-
-
-
     <main id="product-container">
         <div class="product-list">
             {% for product in products %}
@@ -72,28 +71,27 @@
             <p id="detail-description"></p>
             <button id="back-btn-bottom">Назад</button>
         </div>
-    <div class="pagination-buttons">
-        <button id="prev-page-btn" disabled>&lt;&lt;</button>
-        <button id="prev-btn" disabled>&lt;</button>
-        <span id="page-info">Страница 1 из 10</span>
-        <button id="next-btn">&gt;</button>
-        <button id="next-page-btn">&gt;&gt;</button>
-    </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p>Связаться с нами:</p>
-            <ul>
-                <li><img src="{% static 'images/email.png' %}" alt="Email"><a href="gmail:ClothesStore@gmail.com">ClothesStore@gmail.com</a></li>
-                <li><img src="{% static 'images/phone.png' %}" alt="Телефон">+9965555555</li>
-                <li><img src="{% static 'images/Instagram.png' %}" alt="Instagram"><a href="https://www.instagram.com/ClothesStore/">@ClothesStore</a></li>
-            </ul>
-        </div>
-    </footer>
+<footer class="footer">
+  <div class="footer-content">
+    <div class="socials">
+      <p>Связаться с нами:</p>
+      <ul>
+        <li><img src="{% static 'images/email.png' %}" alt="Email"><a href="gmail:ClothesStore@gmail.com">ClothesStore@gmail.com</a></li>
+        <li><img src="{% static 'images/phone.png' %}" alt="Телефон">+9965555555</li>
+        <li><img src="{% static 'images/Instagram.png' %}" alt="Instagram"><a href="https://www.instagram.com/ClothesStore/">@ClothesStore</a></li>
+      </ul>
+    </div>
+    <div class="license">
+      <p>© 2024 ClothesStore. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
 
     <script src="{% static 'js/search.js' %}"></script>
-    <script src="{% static 'js/pagination.js' %}"></script>
     <script src="{% static 'js/filter.js' %}"></script>
     <script src="{% static 'js/return.js' %}"></script>
 </body>
