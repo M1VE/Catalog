@@ -20,35 +20,32 @@
         </div>
     </nav>
 
-<header class="header">
-    <img src="{% static 'images/clothes.jpg' %}" alt="Header Background" class="header-background">
-    <div class="wholesale-text">Оптовая продажа</div>
-    <div class="filters">
-        <div class="filter-group">
-            <label for="min-price">Минимальная цена:</label>
-            <input type="number" id="min-price" class="filter-item" value="0">
-        </div>
-        <div class="filter-group">
-            <label for="max-price">Максимальная цена:</label>
-            <input type="number" id="max-price" class="filter-item" value="50000">
-        </div>
-            <div class="filters">
-              <div class="filter-group" style="display: none;">
+    <header class="header">
+        <img src="{% static 'images/clothes.jpg' %}" alt="Header Background" class="header-background">
+        <div class="wholesale-text">Оптовая продажа</div>
+        <div class="filters">
+            <div class="filter-group">
+                <label for="min-price">Минимальная цена:</label>
+                <input type="number" id="min-price" class="filter-item" value="0">
+            </div>
+            <div class="filter-group">
+                <label for="max-price">Максимальная цена:</label>
+                <input type="number" id="max-price" class="filter-item" value="50000">
+            </div>
+            <div class="filter-group" style="display: none;">
                 <label for="price-range">Фильтр по цене:</label>
                 <input type="range" id="price-range" class="filter-item" value="0">
                 <input type="range" id="price-range-max" class="filter-item" value="50000">
                 <span id="price-value" class="filter-item">0 сом</span> - <span id="price-value-max" class="filter-item">50 000 сом</span>
-              </div>
             </div>
-
-        <div class="filter-group">
-            <label for="category-filter">Фильтр по категории:</label>
-            <select id="category-filter" class="filter-item">
-                <option value="all">Все категории</option>
-            </select>
+            <div class="filter-group">
+                <label for="category-filter">Фильтр по категории:</label>
+                <select id="category-filter" class="filter-item">
+                    <option value="all">Все категории</option>
+                </select>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
     <main id="product-container">
         <div class="product-list">
             {% for product in products %}
@@ -61,35 +58,41 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="product-details" style="display: none;">
-            <button id="back-btn-top">Назад</button>
+        <div class="product-details">
+            <button id="back-btn-top" class="back-btn">Назад</button>
             <h2 id="detail-name"></h2>
             <img id="detail-image" src="" alt="">
             <p id="detail-price"></p>
             <p id="detail-category"></p>
             <p id="detail-brand"></p>
             <p id="detail-description"></p>
-            <button id="back-btn-bottom">Назад</button>
+            <button id="back-btn-bottom" class="back-btn">Назад</button>
         </div>
     </main>
 
-<footer class="footer">
-  <div class="footer-content">
-    <div class="socials">
-      <p>Связаться с нами:</p>
-      <ul>
-        <li><img src="{% static 'images/email.png' %}" alt="Email"><a href="gmail:ClothesStore@gmail.com">ClothesStore@gmail.com</a></li>
-        <li><img src="{% static 'images/phone.png' %}" alt="Телефон">+9965555555</li>
-        <li><img src="{% static 'images/Instagram.png' %}" alt="Instagram"><a href="https://www.instagram.com/ClothesStore/">@ClothesStore</a></li>
-      </ul>
+    <div class="pagination">
+        <button id="first-page">&laquo;</button>
+        <button id="prev-page">&lsaquo;</button>
+        <span id="page-info"><span id="current-page">1</span> / <span id="total-pages">1</span></span>
+        <button id="next-page">&rsaquo;</button>
+        <button id="last-page">&raquo;</button>
     </div>
-    <div class="license">
-      <p>© 2024 ClothesStore. All Rights Reserved.</p>
-    </div>
-  </div>
-</footer>
 
-
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="socials">
+                <p>Связаться с нами:</p>
+                <ul>
+                    <li><img src="{% static 'images/email.png' %}" alt="Email"><a href="gmail:ClothesStore@gmail.com">ClothesStore@gmail.com</a></li>
+                    <li><img src="{% static 'images/phone.png' %}" alt="Телефон">+9965555555</li>
+                    <li><img src="{% static 'images/Instagram.png' %}" alt="Instagram"><a href="https://www.instagram.com/ClothesStore/">@ClothesStore</a></li>
+                </ul>
+            </div>
+            <div class="license">
+                <p>© 2024 ClothesStore. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="{% static 'js/search.js' %}"></script>
     <script src="{% static 'js/filter.js' %}"></script>

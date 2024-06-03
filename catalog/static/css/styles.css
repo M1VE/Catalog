@@ -49,7 +49,7 @@ body {
     border-radius: 5px 0 0 5px;
 }
 
-.nav-right button {
+.nav-right button, .back-btn {
     padding: 8px 16px;
     background-color: #555;
     color: #fff;
@@ -58,8 +58,18 @@ body {
     cursor: pointer;
 }
 
-.nav-right button:hover {
+.nav-right button:hover, .back-btn:hover {
     background-color: #333;
+}
+
+.back-btn {
+    padding: 8px 16px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
 }
 
 .header {
@@ -259,3 +269,87 @@ input[type="range"]::-moz-range-thumb {
         align-items: flex-start;
     }
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 5px;
+}
+
+.pagination button:hover {
+    background-color: #333;
+}
+
+.pagination #page-info {
+    font-size: 18px;
+    margin: 0 15px;
+}
+
+.back-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.back-btn:hover {
+    background-color: #333;
+}
+
+  .product-details {
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+  }
+
+  .product-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .product-details img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .product-details p {
+    margin-bottom: 10px;
+  }
+
+  .product-details button {
+    padding: 10px 20px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .product-details button:hover {
+    background-color: #333;
+  }
